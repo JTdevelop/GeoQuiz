@@ -24,11 +24,10 @@ public class QuizActivity extends AppCompatActivity {
             R.string.correct_toast,
             Toast.LENGTH_SHORT).show();
 
-
       }
     });
 
-    mFalseButton = (Button) findViewById (R.id.false_button);
+    mFalseButton = (Button) findViewById(R.id.false_button);
     mFalseButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -36,7 +35,6 @@ public class QuizActivity extends AppCompatActivity {
             R.string.incorrect_toast,
             Toast.LENGTH_SHORT).show();
       }
-
     });
   }
 }
