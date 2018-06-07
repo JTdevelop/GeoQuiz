@@ -18,9 +18,10 @@ public class QuizActivity extends AppCompatActivity {
   private Button mTrueButton;
   private Button mFalseButton;
   private Button mNextButton;
+  private Button mCheatButton;
   private TextView mQuestionTextView;
 
-  private Question[] mQuestionBank = new Question[] {
+  private Question[] mQuestionBank = new Question[]{
       new Question(R.string.question_australia, true),
       new Question(R.string.question_oceans, true),
       new Question(R.string.question_mideast, false),
@@ -47,7 +48,7 @@ public class QuizActivity extends AppCompatActivity {
     mTrueButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-       checkAnswer(true);
+        checkAnswer(true);
       }
     });
 
@@ -60,11 +61,19 @@ public class QuizActivity extends AppCompatActivity {
     });
 
     mNextButton = (Button) findViewById(R.id.next_button);
-    mNextButton.setOnClickListener(new OnClickListener() {
+    mNextButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
         mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
         updateQuestion();
+      }
+    });
+
+    mCheatButton = (Button) findViewById(R.id.cheat_button);
+    mCheatButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        // Start CheatActivity
       }
     });
 
@@ -118,12 +127,12 @@ public class QuizActivity extends AppCompatActivity {
 
     int messageResId = 0;
 
-        if (userPressedTrue == answerIsTrue) {
+    if (userPressedTrue == answerIsTrue) {
       messageResId = R.string.correct_toast;
-        } else {
-            messageResId = R.string.incorrect_toast;
-        }
-      Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
-          .show();
+    } else {
+      messageResId = R.string.incorrect_toast;
+    }
+    Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
+        .show();
   }
 }
