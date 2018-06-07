@@ -1,5 +1,6 @@
 package com.bignerdranch.android.geoquiz;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -74,6 +75,8 @@ public class QuizActivity extends AppCompatActivity {
       @Override
       public void onClick(View v) {
         // Start CheatActivity
+        Intent intent = new Intent(QuizActivity.this, CheatActivity.class);
+        startActivity(intent);
       }
     });
 
