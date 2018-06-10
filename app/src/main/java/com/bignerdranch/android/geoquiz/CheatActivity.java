@@ -24,6 +24,7 @@ public class CheatActivity extends AppCompatActivity {
     intent.putExtra(EXTRA_ANSWER_IS_TRUE, answerIsTrue);
     return intent;
   }
+
   public static boolean wasAnswerShown(Intent result) {
     return result.getBooleanExtra(EXTRA_ANSWER_SHOWN, false);
   }
